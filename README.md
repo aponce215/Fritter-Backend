@@ -313,3 +313,97 @@ This renders the `index.html` file that will be used to interact with the backen
 **Throws**
 
 - `403` if the user is not logged in
+
+#### `GET /api/profile/:userId?` - Get profile of a specific user
+
+**Returns**
+
+- An object with the information of said user (Description, displayName)
+
+**Throws**
+
+- `404` if the user is not valid
+
+#### `POST /api/profile/:userId?` - Create profile for a specific user
+
+**Returns**
+
+- A success message
+
+**Throws**
+
+- `403` if the user is not logged in
+
+#### `PUT /api/profile/:userId?` - Updates profile for a specific user
+
+**Returns**
+
+- A success message
+
+**Throws**
+
+- `403` if the user is not logged in
+
+#### `GET /api/shareTime/:userId?` - Gets ShareTime for a specific user
+
+**Returns**
+
+- An object containing the daily average and trends of a specific user
+
+**Throws**
+
+- `404` if the user does not exist
+
+#### `POST /api/shareTime/:userId?` - Creates ShareTime for a specific user
+
+**Returns**
+
+- A success message
+
+**Throws**
+
+- `403` if the user is not logged in
+
+#### `Put /api/shareTime/:userId?` - Updates ShareTime for a specific user
+
+**Returns**
+
+- A success message
+
+**Throws**
+
+- `403` if the user is not logged in
+
+#### `POST /api/benevolence/:userId?` - Creates benevolence for a specific user
+
+**Returns**
+
+- A success message
+
+**Throws**
+
+- `404` if the user does not exist
+
+#### `PUT /api/benevolence/:userId?` - Updates benevolence for a specific user after vote
+
+**Returns**
+
+- A success message
+
+**Throws**
+
+- `404` if the user does not exist
+
+#### `GET /api/benevolence/:userId?` - Gets benevolence for a specific user
+
+**Returns**
+
+- A boolean letting us know if user has successful benevolence
+
+**Throws**
+
+- `404` if the user does not exist
+
+
+
+
