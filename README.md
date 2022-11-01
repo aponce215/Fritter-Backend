@@ -311,34 +311,65 @@ This renders the `index.html` file that will be used to interact with the backen
 - A success message
 
 **Throws**
-
 - `403` if the user is not logged in
 
-#### `GET /api/profile/:userId?` - Get profile of a specific user
+#### `GET /api/profile?author=username` - Get profile of a specific user
 
 **Returns**
 
-- An object with the information of said user (Description, displayName)
+- Success message
+- {ProfileResponse} - Profile associated with username with description, displayName, and Birthday assuming user is publically sharing these
 
 **Throws**
+- `{400}` - If username is not given
+- `404` if the user with this name is not found
 
-- `404` if the user is not valid
-
-#### `POST /api/profile/:userId?` - Create profile for a specific user
+#### `GET /api/profile/myProfile` - Find profile of logged in user
 
 **Returns**
 
 - A success message
+- {ProfileResponse} - Profile associated with logged in username with description, displayName, and Birthday as well as privacy settings
+**Throws**
+
+- `403` if the user is not logged in
+
+#### `PUT /api/profiles/` - Modify profile for logged in user
+
+**Body**
+
+- `description` _{string}_ - The user's username
+- `displayName` _{string}_ - The user's password
+- `birthday` _{string}_ - The user's password
+
+**Returns**
+
+- A success message
+- {ProfileResponse} - Profile associated with logged in username with description, displayName, and Birthday as well as privacy settings
+
+**Throws**
+
+- `403` if the user is not logged in
+* `{400}` - If the profile content is empty or a stream of empty spaces
+ * `{413}` - If the profile content is more than 140 characters long
+
+#### `PUT /api/profiles/hideBirthday` - Hides birthday on profile
+
+**Returns**
+
+- A success message
+- {ProfileResponse} - Profile associated with logged in username with description, displayName, and Birthday as well as privacy settings
 
 **Throws**
 
 - `403` if the user is not logged in
 
-#### `PUT /api/profile/:userId?` - Updates profile for a specific user
+#### `PUT /api/profiles/showBirthday` - Makes birthday public
 
 **Returns**
 
 - A success message
+- {ProfileResponse} - Profile associated with logged in username with description, displayName, and Birthday as well as privacy settings
 
 **Throws**
 
@@ -348,61 +379,72 @@ This renders the `index.html` file that will be used to interact with the backen
 
 **Returns**
 
-- An object containing the daily average and trends of a specific user
+- Success message
+- {ShareTimeResponse} - ShareTime of a specific user with trend and daily avg time spent on app
 
 **Throws**
 
 - `404` if the user does not exist
+- `{400}` - If authorId is not given
 
-#### `POST /api/shareTime/:userId?` - Creates ShareTime for a specific user
+#### `GET /api/shareTime/myShareTime` - Creates ShareTime for a specific user
 
 **Returns**
 
 - A success message
+- {ShareTimeResponse} - ShareTime of a specific user with trend and daily avg time spent on app
 
 **Throws**
 
 - `403` if the user is not logged in
 
-#### `Put /api/shareTime/:userId?` - Updates ShareTime for a specific user
+#### `GET /api/benevolence?authorId=id` - Finds benevolence for a specific user
 
 **Returns**
 
 - A success message
+- Benevolence of specifc user
 
 **Throws**
 
-- `403` if the user is not logged in
+- `404` if the user does not exist
+- `{400}` - If authorId is not given
 
-#### `POST /api/benevolence/:userId?` - Creates benevolence for a specific user
+#### `GET /api/benevolence/myBenevolence` - Finds personal benevolence for a specific user 
 
 **Returns**
 
 - A success message
+- Personal benevolence of specific user which contains private data like who the person has nominated and reported
 
 **Throws**
 
-- `404` if the user does not exist
+- `403` if user is not logged in
 
-#### `PUT /api/benevolence/:userId?` - Updates benevolence for a specific user after vote
+#### `PUT /api/benevolence/report` - Reporst a specific user
 
 **Returns**
 
 - A success message
+- Personal benevolence of person who is reporting user which contains private data like who the person has nominated and reported
 
 **Throws**
 
 - `404` if the user does not exist
+- `403` if the reporter is not logged in or this is a duplicate report
 
-#### `GET /api/benevolence/:userId?` - Gets benevolence for a specific user
+#### `PUT /api/benevolence/nominate` - Reporst a specific user
 
 **Returns**
 
-- A boolean letting us know if user has successful benevolence
+- A success message
+- Personal benevolence of person who is reporting user which contains private data like who the person has nominated and reported
 
 **Throws**
 
 - `404` if the user does not exist
+- `403` if the reporter is not logged in or this is a duplicate nomination or reporter
+    has already used up all votes
 
 
 

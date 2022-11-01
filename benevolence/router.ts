@@ -14,7 +14,7 @@ const router = express.Router();
  *
  * @name GET /api/benevolence?authorId=id
  *
- * @return {BenevolenceResponse} - An array of freets created by user with id, authorId
+ * @return {BenevolenceResponse} - Benevolence of specific user
  * @throws {400} - If authorId is not given
  * @throws {404} - If no user has given authorId
  *
@@ -65,7 +65,7 @@ router.get(
 /**
  * Create a report of a user.
  *
- * @name POST /api/benevolence/report
+ * @name PUT /api/benevolence/report
  *
  * @param {string} content - The content of the freet
  * @return {FreetResponse} - The created freet

@@ -54,7 +54,7 @@ router.get(
 /**
  * Modify a profile
  *
- * @name PUT /api/profiles
+ * @name PUT /api/profile
  *
  * @param {string} description - the new description for the profile
  * @param {string} displayName - the new displayName for the profile
@@ -84,7 +84,7 @@ router.put(
 /**
  * Modify profile privacy
  *
- * @name PUT /api/profiles/:id
+ * @name PUT /api/profiles/showBirthday
  *
  * @return {ProfileResponse} - the updated profile
  * @throws {403} - if the user is not logged in
@@ -107,7 +107,7 @@ router.put(
 /**
  * Modify profile privacy
  *
- * @name PUT /api/profiles/:id
+ * @name PUT /api/profiles/hideBirthday
  *
  * @return {ProfileResponse} - the updated profile
  * @throws {403} - if the user is not logged in

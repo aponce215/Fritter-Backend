@@ -12,7 +12,7 @@ const router = express.Router();
  *
  * @name GET /api/shareTime?authorId=id
  *
- * @return {BenevolenceResponse} - An array of freets created by user with id, authorId
+ * @return {ShareTimeResponse} - ShareTime of a specific user
  * @throws {400} - If authorId is not given
  * @throws {404} - If no user has given authorId
  *
