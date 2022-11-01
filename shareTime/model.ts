@@ -1,9 +1,6 @@
 import type {Types, PopulatedDoc, Document} from 'mongoose';
 import {Schema, model} from 'mongoose';
 import type {User} from '../user/model';
-import type {Benevolence} from '../benevolence/model';
-import type {ShareTime} from '../shareTime/model';
-
 
 /**
  * This file defines the properties stored in a Profile
@@ -11,28 +8,32 @@ import type {ShareTime} from '../shareTime/model';
  */
 
 // Type definition for Profile on the backend
-export type Profile = {
+export type ShareTime = {
   _id: Types.ObjectId; // MongoDB assigns each object this ID on creation
   authorId: Types.ObjectId;
-  description: string;
-  displayName: string;
-  birthday: string;
-  showBirthday: Boolean;
+  lastLogin: Date;
+  currentDaily: Number;
+  currentWeekly: [Number, Number, Number, Number, Number, Number, Number];
+  currentWeekday: Number;
+  lastWeekly: Number;
+  trend: Number;
 };
 
-export type PopulatedProfile = {
+export type PopulatedShareTime = {
   _id: Types.ObjectId; // MongoDB assigns each object this ID on creation
   authorId: User;
-  description: string;
-  displayName: string;
-  birthday: string;
-  showBirthday: Boolean;
+  lastLogin: Date;
+  currentDaily: Number;
+  currentWeekly: [Number, Number, Number, Number, Number, Number, Number];
+  lastWeekly: Number;
+  currentWeekday: Number;
+  trend: Number;
 };
 
 // Mongoose schema definition for interfacing with a MongoDB table
-// Profiles stored in this table will have these fields, with the
+// ShareTime stored in this table will have these fields, with the
 // type given by the type property, inside MongoDB
-const ProfileSchema = new Schema<Profile>({
+const ShareTimeSchema = new Schema<ShareTime>({
   // The author userId
   authorId: {
     // Use Types.ObjectId outside of the schema
@@ -41,24 +42,33 @@ const ProfileSchema = new Schema<Profile>({
     ref: 'User'
   },
   // The description of a profile
-  description: {
-    type: String,
+  lastLogin: {
+    type: Date,
     required: true
   },
   // The display name of a profile
-  displayName: {
-    type: String,
+  currentDaily: {
+    type: Number,
     required: true
   },
-  birthday: {
-    type: String,
+  currentWeekly: {
+    type: [Number, Number, Number, Number, Number, Number, Number],
     required: true
   },
-  showBirthday: {
-    type: Boolean,
+  currentWeekday: {
+    type: Number,
+    required: true
+  },
+  lastWeekly: {
+    type: Number,
+    required: true
+  },
+  trend: {
+    type: Number,
     required: true
   }
+  
 });
 
-const ProfileModel = model<Profile>('Profile', ProfileSchema);
-export default ProfileModel;
+const ShareTimeModel = model<ShareTime>('ShareTime', ShareTimeSchema);
+export default ShareTimeModel;

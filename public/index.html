@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="/scripts/freet.js"></script>
   <script src="/scripts/user.js"></script>
+  <script src="/scripts/profile.js"></script>
+  <script src="/scripts/benevolence.js"></script>
+  <script src="/scripts/shareTime.js"></script>
   <script src="/scripts/index.js"></script>
 </head>
 
@@ -116,6 +119,82 @@
             <input id="id" name="id">
           </div>
           <input type="submit" value="Delete Freet">
+        </form>
+        <form id="get-benevolence">
+          <h3>Get Benevolence</h3>
+          <div>
+            <label for="author">Author:</label>
+            <input id="author" name="author">
+          </div>
+          <input type="submit" value="Get benevolence">
+        </form>
+        <form id="get-my-benevolence">
+          <h3>Get My Benevolence</h3>
+          <input type="submit" value="Get My Benevolence">
+        </form>
+        <form id="report-benevolence">
+          <h3>Benevolence: Report</h3>
+          <div>
+            <label for="user">Username:</label>
+            <input id="user" name="user">
+          </div>
+          <input type="submit" value="Report Benevolence">
+        </form>
+        <form id="nominate-benevolence">
+          <h3>Benevolence: Nominate</h3>
+          <div>
+            <label for="user">Username:</label>
+            <input id="user" name="user">
+          </div>
+          <input type="submit" value="Nominate Benevolence">
+        </form>
+        <form id="get-shareTime">
+          <h3>Get ShareTime</h3>
+          <div>
+            <label for="author">Username:</label>
+            <input id="author" name="author">
+          </div>
+          <input type="submit" value="Get ShareTime">
+        </form>
+        <form id="get-my-shareTime">
+          <h3>Get My ShareTime</h3>
+          <input type="submit" value="Get My ShareTime">
+        </form>
+        <form id="get-profile">
+          <h3>Get Profile</h3>
+          <div>
+            <label for="author">Username:</label>
+            <input id="author" name="author">
+          </div>
+          <input type="submit" value="Get Profile">
+        </form>
+        <form id="get-my-profile">
+          <h3>Get My Profile</h3>
+          <input type="submit" value="Get My Profile">
+        </form>
+        <form id="update-profile">
+          <h3>Update Profile</h3>
+          <div>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description"></textarea>
+          </div>
+          <div>
+            <label for="displayName">Display Name:</label>
+            <textarea id="displayName" name="displayName"></textarea>
+          </div>
+          <div>
+            <label for="birthday">Birthday:</label>
+            <textarea id="birthday" name="birthday"></textarea>
+          </div>
+          <input type="submit" value="Update Profile">
+        </form>
+        <form id="birthdayOn-profile">
+          <h3>Show Birthday</h3>
+          <input type="submit" value="Show Birthday">
+        </form>
+        <form id="birthdayOff-profile">
+          <h3>Hide Birthday</h3>
+          <input type="submit" value="Hide Birthday">
         </form>
       </div>
     </section>

@@ -38,7 +38,18 @@ const formsAndHandlers = {
   'view-freets-by-author': viewFreetsByAuthor,
   'create-freet': createFreet,
   'edit-freet': editFreet,
-  'delete-freet': deleteFreet
+  'delete-freet': deleteFreet,
+  'get-benevolence': getBenevolence,
+  'get-my-benevolence': getMyBenevolence,
+  'report-benevolence': reportBenevolence,
+  'nominate-benevolence': nominateBenevolence,
+  'get-shareTime': getShareTime,
+  'get-my-shareTime': getMyShareTime,
+  'get-profile': getProfile,
+  'get-my-profile': getMyProfile,
+  'update-profile': updateProfile,
+  'birthdayOn-profile': showBirthdayProfile,
+  'birthdayOff-profile': hideBirthdayProfile,
 };
 
 // Attach handlers to forms
